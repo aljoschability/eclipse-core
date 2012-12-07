@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core
+Bundle-SymbolicName: com.aljoschability.eclipse.core.runtime;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Aljoschability
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.xtend.lib
+Export-Package: com.aljoschability.core.runtime
+Bundle-ActivationPolicy: lazy
+

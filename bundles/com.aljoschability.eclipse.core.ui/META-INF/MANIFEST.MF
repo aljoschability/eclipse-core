@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core UI
+Bundle-SymbolicName: com.aljoschability.eclipse.core.ui;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Aljoschability
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.ui.ide,
+ org.eclipse.xtend.lib,
+ com.aljoschability.eclipse.core.runtime
+Export-Package: com.aljoschability.core.ui,
+ com.aljoschability.core.ui.actions,
+ com.aljoschability.core.ui.runtime,
+ com.aljoschability.core.ui.util,
+ com.aljoschability.core.ui.wizards
+Bundle-Activator: com.aljoschability.core.ui.Activator
+Bundle-ActivationPolicy: lazy

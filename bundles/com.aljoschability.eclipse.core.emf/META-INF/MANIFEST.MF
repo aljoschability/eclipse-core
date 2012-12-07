@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Core Ecore
+Bundle-SymbolicName: com.aljoschability.eclipse.core.emf;singleton:=true
+Bundle-Version: 0.2.0.qualifier
+Bundle-Vendor: Aljoschability
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-Activator: com.aljoschability.core.emf.Activator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore.edit,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.emf.edit.ui,
+ org.eclipse.emf.validation,
+ org.eclipse.ui.ide,
+ org.eclipse.xtend.lib,
+ com.aljoschability.eclipse.core.runtime,
+ com.aljoschability.eclipse.core.ui
+Export-Package: com.aljoschability.core.emf,
+ com.aljoschability.core.emf.actions,
+ com.aljoschability.core.emf.dialogs,
+ com.aljoschability.core.emf.editors,
+ com.aljoschability.core.emf.providers,
+ com.aljoschability.core.emf.wizards
+
