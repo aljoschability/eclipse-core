@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.aljoschability.core.emf.feature_0.5.0.qualifier.jar" id="com.aljoschability.core.emf.feature" version="0.5.0.qualifier">
+   <feature url="features/com.aljoschability.eclipse.core.feature_0.2.0.qualifier.jar" id="com.aljoschability.eclipse.core.feature" version="0.2.0.qualifier">
       <category name="com.aljoschability.core"/>
    </feature>
+   <!--
    <feature url="features/com.aljoschability.core.graphiti.feature_0.5.0.qualifier.jar" id="com.aljoschability.core.graphiti.feature" version="0.5.0.qualifier">
       <category name="com.aljoschability.core"/>
    </feature>
    <feature url="features/com.aljoschability.core.ui.feature_0.5.0.qualifier.jar" id="com.aljoschability.core.ui.feature" version="0.5.0.qualifier">
       <category name="com.aljoschability.core"/>
    </feature>
+   -->
    <category-def name="com.aljoschability.core" label="Aljoschability Core"/>
 </site>

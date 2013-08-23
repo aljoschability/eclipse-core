@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.aljoschability.core</groupId>
-		<artifactId>com.aljoschability.core.parent</artifactId>
-		<version>0.5.0-SNAPSHOT</version>
+		<groupId>com.aljoschability.eclipse.core</groupId>
+		<artifactId>com.aljoschability.eclipse.core.parent</artifactId>
+		<version>0.2.0-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
-	<artifactId>com.aljoschability.core.repository</artifactId>
+	<artifactId>com.aljoschability.eclipse.core.repository</artifactId>
 	<packaging>eclipse-repository</packaging>
 </project>

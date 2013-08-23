@@ -12,12 +12,33 @@
 </copyright>
 -->
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>com.aljoschability.core.tests</artifactId>
-	<packaging>eclipse-test-plugin</packaging>
 	<parent>
-		<groupId>com.aljoschability.core</groupId>
-		<artifactId>com.aljoschability.core.parent</artifactId>
-		<version>0.5.0-SNAPSHOT</version>
+		<groupId>com.aljoschability.eclipse.core</groupId>
+		<artifactId>com.aljoschability.eclipse.core.parent</artifactId>
+		<version>0.2.0-SNAPSHOT</version>
 		<relativePath>../..</relativePath>
 	</parent>
+	<artifactId>com.aljoschability.eclipse.core.tests</artifactId>
+	<packaging>eclipse-test-plugin</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+				<version>${xtend.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/src/test/generated-xtend</outputDirectory>
+							<testOutputDirectory>${basedir}/src/test/generated-xtend</testOutputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
