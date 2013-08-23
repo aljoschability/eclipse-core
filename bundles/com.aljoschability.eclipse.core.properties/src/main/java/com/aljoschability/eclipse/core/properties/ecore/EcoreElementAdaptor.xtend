@@ -29,7 +29,7 @@ class EcoreElementAdaptor extends AbstractElementAdaptor {
 		}
 
 		if (element instanceof EObject) {
-			return element as EObject
+			return element
 		}
 
 		return null;

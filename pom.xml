@@ -19,30 +19,26 @@
 
 	<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tycho.version>0.20.0</tycho.version>
+        <tycho.version>0.21.0</tycho.version>
         <xtend.version>2.6.0</xtend.version>
 	</properties>
 
 	<modules>
-		<module>bundles/com.aljoschability.eclipse.core.emf</module>
-		<module>bundles/com.aljoschability.eclipse.core.graphiti</module>
-		<module>bundles/com.aljoschability.eclipse.core.properties</module>
 		<module>bundles/com.aljoschability.eclipse.core.runtime</module>
+		<module>bundles/com.aljoschability.eclipse.core.emf</module>
 		<module>bundles/com.aljoschability.eclipse.core.ui</module>
+		<module>bundles/com.aljoschability.eclipse.core.properties</module>
+		<module>bundles/com.aljoschability.eclipse.core.graphiti</module>
 
-<!--
-		<module>tests/com.aljoschability.core.tests</module>
-
-		<module>features/com.aljoschability.eclipse.core.emf.feature</module>
-		<module>features/com.aljoschability.eclipse.core.graphiti.feature</module>
-		<module>features/com.aljoschability.eclipse.core.ui.feature</module>
+		<module>features/com.aljoschability.eclipse.core.feature</module>
 
 		<module>repositories/com.aljoschability.eclipse.core.repository</module>
--->
+		
+		<module>tests/com.aljoschability.eclipse.core.tests</module>
 	</modules>
 
 	<repositories>
-		<!-- add eclipse kepler repository to resolve basic dependencies -->
+		<!-- add eclipse repository to resolve basic dependencies -->
 		<repository>
 			<id>eclipse-luna</id>
 			<layout>p2</layout>
