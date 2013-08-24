@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Core
+Bundle-Name: Core Runtime
 Bundle-SymbolicName: com.aljoschability.eclipse.core.runtime;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Aljoschability
