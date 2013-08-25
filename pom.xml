@@ -1,16 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
-<copyright>
-	Copyright 2013 by Aljoschability and others. All rights reserved. This
-	program and its materials are made available under the terms of the Eclipse
-	Public License v1.0 which is referenced inside the distribution.
+	Copyright 2013 Aljoschability and others. All rights reserved.
+
+	This program and the accompanying materials are made available under the
+	terms of the Eclipse Public License v1.0 which accompanies this distribution,
+	and is available at http://www.eclipse.org/legal/epl-v10.html
 
 	Contributors:
-		Aljoscha Hark <aljoschability@gmail.com> - Initial code
-
-</copyright>
+		Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.aljoschability.eclipse.core</groupId>
 	<artifactId>com.aljoschability.eclipse.core.parent</artifactId>
@@ -20,7 +20,7 @@
 	<properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <tycho.version>0.21.0</tycho.version>
-        <xtend.version>2.6.0</xtend.version>
+        <xtend.version>2.7.2</xtend.version>
 	</properties>
 
 	<modules>
@@ -30,11 +30,13 @@
 		<module>bundles/com.aljoschability.eclipse.core.properties</module>
 		<module>bundles/com.aljoschability.eclipse.core.graphiti</module>
 
-		<module>features/com.aljoschability.eclipse.core.feature</module>
+		<module>features/com.aljoschability.eclipse.core.graphiti.feature</module>
+		<module>features/com.aljoschability.eclipse.core.properties.feature</module>
+		<module>features/com.aljoschability.eclipse.core.runtime.feature</module>
 
 		<module>repositories/com.aljoschability.eclipse.core.repository</module>
 		
-		<module>tests/com.aljoschability.eclipse.core.tests</module>
+		<!--<module>tests/com.aljoschability.eclipse.core.runtime.tests</module>-->
 	</modules>
 
 	<repositories>
@@ -43,6 +45,11 @@
 			<id>eclipse-luna</id>
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/releases/luna</url>
+		</repository>
+		<repository>
+			<id>eclipse-license</id>
+			<url>http://download.eclipse.org/cbi/updates/license/</url>
+			<layout>p2</layout>
 		</repository>
 	</repositories>
 

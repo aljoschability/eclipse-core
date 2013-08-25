@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Copyright 2013 Aljoschability and others. All rights reserved.
+
+	This program and the accompanying materials are made available under the
+	terms of the Eclipse Public License v1.0 which accompanies this distribution,
+	and is available at http://www.eclipse.org/legal/epl-v10.html
+
+	Contributors:
+		Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
+-->
+<feature
+      id="com.aljoschability.eclipse.core.graphiti.feature"
+      label="%label"
+      version="0.2.0.qualifier"
+      provider-name="%providerName"
+      license-feature="org.eclipse.license"
+      license-feature-version="1.0.1.qualifier">
+
+   <description>
+      %description
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
+
+   <requires>
+      <import feature="com.aljoschability.eclipse.core.runtime.feature" version="0.2.0.qualifier"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore.edit"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
+      <import plugin="org.eclipse.emf.edit.ui"/>
+      <import plugin="org.eclipse.emf.validation"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.xtend.lib"/>
+      <import plugin="com.aljoschability.eclipse.core.runtime"/>
+      <import plugin="com.aljoschability.eclipse.core.ui"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import plugin="org.eclipse.gef"/>
+      <import plugin="org.eclipse.graphiti"/>
+      <import plugin="org.eclipse.graphiti.pattern"/>
+      <import plugin="org.eclipse.graphiti.ui"/>
+      <import plugin="org.eclipse.ui.views.properties.tabbed"/>
+   </requires>
+
+   <plugin
+         id="com.aljoschability.eclipse.core.emf"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.aljoschability.eclipse.core.graphiti"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
