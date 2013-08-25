@@ -18,7 +18,7 @@ import org.eclipse.graphiti.services.Graphiti;
 
 import com.aljoschability.core.emf.Activator;
 import com.aljoschability.core.emf.wizards.AbstractCreateModelWizard;
-import com.aljoschability.core.ui.wizards.NewFileCreationPage;
+import com.aljoschability.core.emf.wizards.NewFileCreationPage;
 
 public abstract class AbstractCreateDiagramWizard extends AbstractCreateModelWizard {
 	private static final String NAME_DIAGRAM = "diagram"; //$NON-NLS-1$

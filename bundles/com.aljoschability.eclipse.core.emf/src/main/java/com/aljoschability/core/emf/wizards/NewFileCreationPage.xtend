@@ -1,4 +1,4 @@
-package com.aljoschability.core.ui.wizards
+package com.aljoschability.core.emf.wizards
 
 import org.eclipse.core.resources.IContainer
 import org.eclipse.core.resources.IFile

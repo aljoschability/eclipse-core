@@ -8,7 +8,7 @@ import org.eclipse.jface.wizard.IWizardContainer;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
-import com.aljoschability.core.ui.wizards.ExistingFileSelectionPage;
+import com.aljoschability.core.emf.wizards.ExistingFileSelectionPage;
 
 public abstract class AbstractInitializeDiagramWizard extends Wizard {
 	private IFile file;

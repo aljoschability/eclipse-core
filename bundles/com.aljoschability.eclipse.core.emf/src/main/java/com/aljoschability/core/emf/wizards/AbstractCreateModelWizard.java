@@ -26,7 +26,6 @@ import org.eclipse.ui.part.FileEditorInput;
 
 import com.aljoschability.core.emf.Activator;
 import com.aljoschability.core.ui.util.ViewUtil;
-import com.aljoschability.core.ui.wizards.NewFileCreationPage;
 
 public abstract class AbstractCreateModelWizard extends Wizard implements INewWizard {
 	private static final String NAME_MODEL = "model"; //$NON-NLS-1$
@@ -137,7 +136,7 @@ public abstract class AbstractCreateModelWizard extends Wizard implements INewWi
 
 	/**
 	 * This is called after the resource has been created and should add and initialize all contents to the resource.
-	 * 
+	 *
 	 * @param resource The resource that will be created.
 	 * @return
 	 */
@@ -145,7 +144,7 @@ public abstract class AbstractCreateModelWizard extends Wizard implements INewWi
 
 	/**
 	 * Delivers the editor ID to open after wizard completion. When returning {@code null} no editor will be opened.
-	 * 
+	 *
 	 * @return Returns the editor ID or {@code null}.
 	 */
 	protected String getEditorId() {
