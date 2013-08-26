@@ -1,3 +1,3 @@
 # Eclipse Core Components
 
-This repository holds the stapade components.
+This repository contains core components for eclipse based projects.
