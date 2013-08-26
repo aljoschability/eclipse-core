@@ -21,16 +21,20 @@
 		<xtend.version>2.7.2</xtend.version>
 	</properties>
 	<modules>
+		<!-- bundles -->
 		<module>bundles/com.aljoschability.eclipse.core.runtime</module>
 		<module>bundles/com.aljoschability.eclipse.core.emf</module>
 		<module>bundles/com.aljoschability.eclipse.core.ui</module>
 		<module>bundles/com.aljoschability.eclipse.core.properties</module>
 		<module>bundles/com.aljoschability.eclipse.core.graphiti</module>
+		<!-- tests -->
+		<!--<module>tests/com.aljoschability.eclipse.core.runtime.tests</module>-->
+		<!-- features -->
 		<module>features/com.aljoschability.eclipse.core.graphiti.feature</module>
 		<module>features/com.aljoschability.eclipse.core.properties.feature</module>
 		<module>features/com.aljoschability.eclipse.core.runtime.feature</module>
+		<!-- repositories -->
 		<module>repositories/com.aljoschability.eclipse.core.repository</module>
-		<!--<module>tests/com.aljoschability.eclipse.core.runtime.tests</module>-->
 	</modules>
 	<repositories>
 		<!-- add eclipse repository to resolve basic dependencies -->
