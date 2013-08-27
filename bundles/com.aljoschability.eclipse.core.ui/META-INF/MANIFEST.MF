@@ -5,13 +5,11 @@ Bundle-SymbolicName: com.aljoschability.eclipse.core.ui;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: Aljoschability
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.eclipse.core.resources,
- org.eclipse.core.runtime,
+Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui,
  org.eclipse.xtend.lib,
  com.aljoschability.eclipse.core.runtime
 Export-Package: com.aljoschability.core.ui,
- com.aljoschability.core.ui.actions,
  com.aljoschability.core.ui.runtime,
  com.aljoschability.core.ui.util
 Bundle-Activator: com.aljoschability.core.ui.Activator
