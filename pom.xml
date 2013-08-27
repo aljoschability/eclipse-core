@@ -22,13 +22,12 @@
 	</properties>
 	<modules>
 		<!-- bundles -->
-		<module>bundles/com.aljoschability.eclipse.core.runtime</module>
+		<module>bundles/com.aljoschability.eclipse.core.debug</module>
 		<module>bundles/com.aljoschability.eclipse.core.emf</module>
-		<module>bundles/com.aljoschability.eclipse.core.ui</module>
-		<module>bundles/com.aljoschability.eclipse.core.properties</module>
 		<module>bundles/com.aljoschability.eclipse.core.graphiti</module>
-		<!-- tests -->
-		<!--<module>tests/com.aljoschability.eclipse.core.runtime.tests</module>-->
+		<module>bundles/com.aljoschability.eclipse.core.properties</module>
+		<module>bundles/com.aljoschability.eclipse.core.runtime</module>
+		<module>bundles/com.aljoschability.eclipse.core.ui</module>
 		<!-- features -->
 		<module>features/com.aljoschability.eclipse.core.graphiti.feature</module>
 		<module>features/com.aljoschability.eclipse.core.properties.feature</module>
@@ -68,7 +67,7 @@
 						<environment>
 							<os>win32</os>
 							<ws>win32</ws>
-							<arch>x86</arch>
+							<arch>x86_64</arch>
 						</environment>
 						<environment>
 							<os>linux</os>

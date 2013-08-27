@@ -1,11 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %bundle.name
-Bundle-SymbolicName: com.aljoschability.eclipse.core.tests;singleton:=true
+Bundle-SymbolicName: com.aljoschability.eclipse.core.debug;singleton:=true
 Bundle-Version: 0.2.0.qualifier
 Bundle-Vendor: %bundle.vendor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: com.aljoschability.core.tests
+Export-Package: com.aljoschability.core.debug
 Require-Bundle: org.eclipse.xtend.lib,
  org.junit

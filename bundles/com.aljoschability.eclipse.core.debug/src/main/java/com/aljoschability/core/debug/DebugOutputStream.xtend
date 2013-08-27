@@ -8,7 +8,7 @@
  * Contributors:
  * 	Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
  */
-package com.aljoschability.core.tests
+package com.aljoschability.core.debug
 
 import java.io.OutputStream
 import java.io.PrintStream

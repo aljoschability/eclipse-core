@@ -10,7 +10,7 @@
 		Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
 -->
 <projectDescription>
-	<name>com.aljoschability.eclipse.core.tests</name>
+	<name>com.aljoschability.eclipse.core.debug</name>
 	<comment></comment>
 	<projects>
 	</projects>
