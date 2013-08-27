@@ -44,8 +44,8 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import com.aljoschability.core.emf.Activator;
 import com.aljoschability.core.emf.actions.LoadResourceAction;
 import com.aljoschability.core.emf.actions.RefreshAction;
+import com.aljoschability.core.emf.actions.ShowPropertiesAction;
 import com.aljoschability.core.ui.CoreImages;
-import com.aljoschability.core.ui.actions.ShowPropertiesAction;
 
 public class EcoreEditorContributor extends EditorActionBarContributor implements IMenuListener, IPropertyListener,
 		ISelectionChangedListener {

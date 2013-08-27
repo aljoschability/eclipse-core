@@ -8,7 +8,7 @@
  * Contributors:
  * 	Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
  */
-package com.aljoschability.core.ui.actions;
+package com.aljoschability.core.emf.actions;
 
 import org.eclipse.jface.action.Action;
 

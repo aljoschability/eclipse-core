@@ -395,7 +395,7 @@ public class EcoreEditor extends EditorPart implements IEditingDomainProvider, I
 
 	private Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
 		if (!resource.getErrors().isEmpty() || !resource.getWarnings().isEmpty()) {
-			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, Activator.get().getID(), 0,
+			BasicDiagnostic basicDiagnostic = new BasicDiagnostic(Diagnostic.ERROR, Activator.get().getSymbolicName(), 0,
 					MessageFormat.format("_UI_CreateModelError_message {0}", resource.getURI()),
 					new Object[] { exception == null ? (Object) resource : exception });
 			basicDiagnostic.merge(EcoreUtil.computeDiagnostic(resource, true));
