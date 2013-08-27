@@ -29,7 +29,7 @@ interface ICoreActivator extends BundleActivator {
 	 * 
 	 * @return Returns the symbolic name of the plug-in.
 	 */
-	def String getID();
+	def String getSymbolicName()
 
 	/**
 	 * Delivers the bundle context.
@@ -50,14 +50,14 @@ interface ICoreActivator extends BundleActivator {
 	 * 
 	 * @param text The text to log.
 	 */
-	def void info(String text);
+	def void info(String text)
 
 	/**
 	 * Logs the given text as warning entry in the status log for this plug-in.
 	 * 
 	 * @param text The text to log.
 	 */
-	def void warn(String text);
+	def void warn(String text)
 
 	/**
 	 * Logs the given exception as warning in the status log for this plug-in
@@ -65,7 +65,7 @@ interface ICoreActivator extends BundleActivator {
 	 * 
 	 * @param cause The exception to be logged.
 	 */
-	def void warn(Throwable cause);
+	def void warn(Throwable cause)
 
 	/**
 	 * Logs the given text and exception as warning in the ILog status log for this
@@ -74,14 +74,14 @@ interface ICoreActivator extends BundleActivator {
 	 * @param text The text to logged.
 	 * @param cause The exception to be logged.
 	 */
-	def void warn(String text, Throwable cause);
+	def void warn(String text, Throwable cause)
 
 	/**
 	 * Logs the given text as error in the status log for this plug-in.
 	 * 
 	 * @param text The text to log.
 	 */
-	def void error(String text);
+	def void error(String text)
 
 	/**
 	 * Logs the exception as error in the status log for this plug-in trying to
@@ -89,7 +89,7 @@ interface ICoreActivator extends BundleActivator {
 	 * 
 	 * @param cause The exception to be logged.
 	 */
-	def void error(Throwable cause);
+	def void error(Throwable cause)
 
 	/**
 	 * Logs the given text and the exception as error in the status log for this
@@ -98,5 +98,5 @@ interface ICoreActivator extends BundleActivator {
 	 * @param text The text to be logged.
 	 * @param cause The exception be to logged.
 	 */
-	def void error(String text, Throwable cause);
+	def void error(String text, Throwable cause)
 }

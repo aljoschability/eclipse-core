@@ -80,7 +80,7 @@ public abstract class AbstractCreateDiagramWizard extends AbstractCreateModelWiz
 					diagramResource.save(Collections.emptyMap());
 				} catch (IOException e) {
 					monitor.done();
-					return new Status(IStatus.ERROR, Activator.get().getID(), "The model file could not be created.", e);
+					return new Status(IStatus.ERROR, Activator.get().getSymbolicName(), "The model file could not be created.", e);
 				}
 
 				// open editor

@@ -16,7 +16,7 @@ import org.eclipse.ui.PartInitException
 import org.eclipse.ui.PlatformUI
 
 final class ViewUtil {
-	public static final String ID_PROPERTIES = "org.eclipse.ui.views.PropertySheet"; //$NON-NLS-1$
+	val public static ID_PROPERTIES = "org.eclipse.ui.views.PropertySheet" //$NON-NLS-1$
 
 	def static void open(String id) {
 		try

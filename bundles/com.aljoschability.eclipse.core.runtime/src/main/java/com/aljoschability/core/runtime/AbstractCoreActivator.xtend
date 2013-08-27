@@ -26,7 +26,7 @@ import org.osgi.framework.BundleContext
 abstract class AbstractCoreActivator implements ICoreActivator {
 	BundleContext bundleContext
 
-	override getID() {
+	override getSymbolicName() {
 		bundle?.symbolicName
 	}
 
@@ -77,7 +77,7 @@ abstract class AbstractCoreActivator implements ICoreActivator {
 	}
 
 	private def log(int severity, String text, Throwable cause) {
-		log(new Status(severity, ID, text, cause))
+		log(new Status(severity, symbolicName, text, cause))
 	}
 
 	private def log(IStatus status) {

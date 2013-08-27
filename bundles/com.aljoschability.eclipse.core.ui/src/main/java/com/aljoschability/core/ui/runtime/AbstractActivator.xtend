@@ -94,7 +94,7 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 
 	final override getPreferenceStore() {
 		if (preferenceStore == null) {
-			preferenceStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, ID)
+			preferenceStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, symbolicName)
 		}
 		return preferenceStore;
 	}
@@ -149,7 +149,7 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 			return;
 		}
 
-		descriptor = AbstractUIPlugin::imageDescriptorFromPlugin(ID, path)
+		descriptor = AbstractUIPlugin::imageDescriptorFromPlugin(symbolicName, path)
 		if (descriptor == null) {
 			warn(MessageFormat::format("The image under the path {0} could not be found.", path))
 			return
