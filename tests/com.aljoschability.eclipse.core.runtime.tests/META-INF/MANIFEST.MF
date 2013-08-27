@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Tests
+Bundle-Name: %bundle.name
 Bundle-SymbolicName: com.aljoschability.eclipse.core.runtime.tests
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Aljoschability
+Bundle-Vendor: %bundle.vendor
 Fragment-Host: com.aljoschability.eclipse.core.runtime;bundle-version="0.2.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.junit

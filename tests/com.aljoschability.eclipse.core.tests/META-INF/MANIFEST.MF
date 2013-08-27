@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Tests
+Bundle-Name: %bundle.name
 Bundle-SymbolicName: com.aljoschability.eclipse.core.tests;singleton:=true
 Bundle-Version: 0.2.0.qualifier
-Bundle-Vendor: Aljoschability
+Bundle-Vendor: %bundle.vendor
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: com.aljoschability.core.tests
