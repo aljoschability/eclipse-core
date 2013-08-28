@@ -8,7 +8,7 @@
  * Contributors:
  * 	Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
  */
-package com.aljoschability.eclipse.core.ui.properties.sections
+package com.aljoschability.eclipse.core.properties.sections
 
 import org.eclipse.swt.SWT
 import org.eclipse.swt.events.SelectionAdapter

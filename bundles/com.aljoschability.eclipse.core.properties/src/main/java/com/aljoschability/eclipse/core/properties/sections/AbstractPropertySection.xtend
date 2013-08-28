@@ -8,10 +8,14 @@
  * Contributors:
  * 	Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
  */
-package com.aljoschability.eclipse.core.ui.properties.sections
+package com.aljoschability.eclipse.core.properties.sections
 
+import com.aljoschability.core.ui.CoreColors
+import com.aljoschability.core.ui.CoreImages
+import com.aljoschability.eclipse.core.properties.ElementAdaptor
+import com.aljoschability.eclipse.core.ui.properties.State
+import com.aljoschability.eclipse.core.ui.properties.State.Type
 import java.util.Collection
-
 import org.eclipse.core.runtime.Assert
 import org.eclipse.emf.common.command.Command
 import org.eclipse.emf.common.notify.Adapter
@@ -40,12 +44,6 @@ import org.eclipse.ui.IWorkbenchPart
 import org.eclipse.ui.views.properties.tabbed.ISection
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory
-
-import com.aljoschability.core.ui.CoreColors
-import com.aljoschability.core.ui.CoreImages
-import com.aljoschability.eclipse.core.properties.ElementAdaptor
-import com.aljoschability.eclipse.core.ui.properties.State
-import com.aljoschability.eclipse.core.ui.properties.State.Type
 
 abstract class AbstractPropertySection implements ISection {
 	protected static final String EMPTY = "" //$NON-NLS-1$

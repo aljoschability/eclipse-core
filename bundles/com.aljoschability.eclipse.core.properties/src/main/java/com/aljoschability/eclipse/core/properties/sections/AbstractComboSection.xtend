@@ -8,7 +8,7 @@
  * Contributors:
  * 	Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
  */
-package com.aljoschability.eclipse.core.ui.properties.sections
+package com.aljoschability.eclipse.core.properties.sections
 
 import com.aljoschability.core.ui.CoreImages
 import com.aljoschability.eclipse.core.properties.ElementAdaptor
