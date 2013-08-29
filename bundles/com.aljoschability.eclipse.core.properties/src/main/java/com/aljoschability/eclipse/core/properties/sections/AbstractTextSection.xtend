@@ -11,7 +11,7 @@
 package com.aljoschability.eclipse.core.properties.sections;
 
 import com.aljoschability.eclipse.core.properties.ElementAdaptor
-import com.aljoschability.eclipse.core.ui.properties.State
+import com.aljoschability.eclipse.core.properties.State
 import org.eclipse.emf.ecore.EDataType
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.eclipse.jface.layout.GridDataFactory

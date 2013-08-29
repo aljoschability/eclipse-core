@@ -17,6 +17,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Export-Package: com.aljoschability.eclipse.core.properties,
  com.aljoschability.eclipse.core.properties.graphiti,
  com.aljoschability.eclipse.core.properties.impl,
- com.aljoschability.eclipse.core.properties.sections,
- com.aljoschability.eclipse.core.ui.properties
+ com.aljoschability.eclipse.core.properties.sections
 Bundle-ActivationPolicy: lazy

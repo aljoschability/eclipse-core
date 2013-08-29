@@ -13,8 +13,8 @@ package com.aljoschability.eclipse.core.properties.sections
 import com.aljoschability.core.ui.CoreColors
 import com.aljoschability.core.ui.CoreImages
 import com.aljoschability.eclipse.core.properties.ElementAdaptor
-import com.aljoschability.eclipse.core.ui.properties.State
-import com.aljoschability.eclipse.core.ui.properties.State.Type
+import com.aljoschability.eclipse.core.properties.State
+import java.lang.reflect.Type
 import java.util.Collection
 import org.eclipse.core.runtime.Assert
 import org.eclipse.emf.common.command.Command

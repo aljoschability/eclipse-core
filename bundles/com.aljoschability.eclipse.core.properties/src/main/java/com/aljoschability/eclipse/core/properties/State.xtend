@@ -8,7 +8,7 @@
  * Contributors:
  * 	Aljoscha Hark <mail@aljoschability.com> - initial API and implementation
  */
-package com.aljoschability.eclipse.core.ui.properties
+package com.aljoschability.eclipse.core.properties
 
 final class State {
 	public static val NONE = new State(Type::NONE, null)

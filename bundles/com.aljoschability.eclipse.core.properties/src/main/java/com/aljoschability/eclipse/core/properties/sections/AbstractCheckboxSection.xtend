@@ -10,6 +10,8 @@
  */
 package com.aljoschability.eclipse.core.properties.sections
 
+import com.aljoschability.eclipse.core.properties.ElementAdaptor
+import com.aljoschability.eclipse.core.properties.State
 import org.eclipse.swt.SWT
 import org.eclipse.swt.events.SelectionAdapter
 import org.eclipse.swt.events.SelectionEvent
@@ -19,9 +21,6 @@ import org.eclipse.swt.widgets.Button
 import org.eclipse.swt.widgets.Composite
 import org.eclipse.swt.widgets.Label
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory
-
-import com.aljoschability.eclipse.core.properties.ElementAdaptor
-import com.aljoschability.eclipse.core.ui.properties.State
 
 abstract class AbstractCheckboxSection extends AbstractFeaturePropertySection {
 	new(ElementAdaptor adaptor) {

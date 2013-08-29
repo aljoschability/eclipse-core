@@ -12,7 +12,7 @@ package com.aljoschability.eclipse.core.properties.sections
 
 import com.aljoschability.core.ui.CoreImages
 import com.aljoschability.eclipse.core.properties.ElementAdaptor
-import com.aljoschability.eclipse.core.ui.properties.State
+import com.aljoschability.eclipse.core.properties.State
 import java.util.List
 import java.util.Map
 import org.eclipse.emf.ecore.EStructuralFeature
