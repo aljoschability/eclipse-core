@@ -26,18 +26,6 @@ final class Activator extends AbstractActivator {
 		addImage(GraphitiImages.OUTLINE_OVERVIEW)
 		addImage(GraphitiImages.OUTLINE_TREE)
 		addImage(GraphitiImages.OUTLINE_MULTI)
-
-		addImage(GraphitiImages.GA_ELLIPSE)
-		addImage(GraphitiImages.GA_IMAGE)
-		addImage(GraphitiImages.GA_MULTI_TEXT)
-		addImage(GraphitiImages.GA_POLYGON)
-		addImage(GraphitiImages.GA_POLYLINE)
-		addImage(GraphitiImages.GA_RECTANGLE)
-		addImage(GraphitiImages.GA_ROUNDED_RECTANGLE)
-		addImage(GraphitiImages.GA_TEXT)
-
-		addImage(GraphitiImages.PE_PICTOGRAM_LINK)
-		addImage(GraphitiImages.PE_DIAGRAM)
 	}
 
 	override void dispose() {

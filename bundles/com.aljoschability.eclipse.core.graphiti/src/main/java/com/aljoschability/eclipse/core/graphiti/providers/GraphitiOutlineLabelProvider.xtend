@@ -10,7 +10,6 @@
  */
 package com.aljoschability.eclipse.core.graphiti.providers
 
-import com.aljoschability.eclipse.core.graphiti.GraphitiImages
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.graphiti.mm.algorithms.Ellipse
 import org.eclipse.graphiti.mm.algorithms.Image
@@ -19,19 +18,12 @@ import org.eclipse.graphiti.mm.algorithms.Polygon
 import org.eclipse.graphiti.mm.algorithms.Polyline
 import org.eclipse.graphiti.mm.algorithms.Rectangle
 import org.eclipse.graphiti.mm.algorithms.RoundedRectangle
-import org.eclipse.graphiti.mm.algorithms.Text
 import org.eclipse.graphiti.mm.algorithms.styles.Color
 import org.eclipse.graphiti.mm.algorithms.styles.Font
 import org.eclipse.graphiti.mm.algorithms.styles.Point
-import org.eclipse.graphiti.mm.pictograms.Diagram
-import org.eclipse.graphiti.mm.pictograms.PictogramLink
 import org.eclipse.jface.viewers.LabelProvider
 
 class GraphitiOutlineLabelProvider extends LabelProvider {
-
-	//	def dispatch String text(PictogramElement e) '''�e.eClass.name�(�e.active�, �e.visible�)'''
-	//	def dispatch String text(Polyline e) '''�e.eClass.name�(�FOR p : e.points��p.x�, �p.y�; �ENDFOR�)'''
-	//	def dispatch String text(PictogramLink e) '''�e.eClass.name�(�e.businessObjects.forEach[text(it)]�)'''
 	override getText(Object e) {
 		switch e {
 			Color: '''{«e.red», «e.green», «e.blue»}'''
@@ -50,33 +42,6 @@ class GraphitiOutlineLabelProvider extends LabelProvider {
 			EObject: '''«e.eClass.name»'''
 			default:
 				super.getText(e)
-		}
-	}
-
-	override getImage(Object element) {
-		switch element {
-			PictogramLink:
-				GraphitiImages::getImage(GraphitiImages::PE_PICTOGRAM_LINK)
-			Diagram:
-				GraphitiImages::getImage(GraphitiImages::PE_DIAGRAM)
-			Ellipse:
-				GraphitiImages::getImage(GraphitiImages::GA_ELLIPSE)
-			Image:
-				GraphitiImages::getImage(GraphitiImages::GA_IMAGE)
-			MultiText:
-				GraphitiImages::getImage(GraphitiImages::GA_MULTI_TEXT)
-			Polygon:
-				GraphitiImages::getImage(GraphitiImages::GA_POLYGON)
-			Polyline:
-				GraphitiImages::getImage(GraphitiImages::GA_POLYLINE)
-			Rectangle:
-				GraphitiImages::getImage(GraphitiImages::GA_RECTANGLE)
-			RoundedRectangle:
-				GraphitiImages::getImage(GraphitiImages::GA_ROUNDED_RECTANGLE)
-			Text:
-				GraphitiImages::getImage(GraphitiImages::GA_TEXT)
-			default:
-				super.getImage(element)
 		}
 	}
 }
