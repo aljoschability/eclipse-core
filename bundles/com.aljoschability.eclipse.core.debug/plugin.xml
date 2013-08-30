@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <e4view
+            category="org.eclipse.debug.ui"
+            class="com.aljoschability.core.debug.parts.GraphitiDebugOutlinePart"
+            icon="icons/parts/graphiti-debug-outline.png"
+            id="com.aljoschability.eclipse.core.debug.parts.GraphitiDebugOutlinePart"
+            name="Graphiti Debug Outline">
+      </e4view>
+   </extension>
+
+</plugin>
