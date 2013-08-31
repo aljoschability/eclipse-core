@@ -46,7 +46,7 @@ class DebugOutputStream extends PrintStream {
 	}
 
 	def private void showLocation() {
-		var StackTraceElement element = Thread::currentThread.stackTrace.get(3)
+		val element = Thread::currentThread.stackTrace.get(4)
 		super.print(MessageFormat::format("({0}:{1, number,#}) : ", element.fileName, element.lineNumber))
 	}
 }
