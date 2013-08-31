@@ -37,6 +37,7 @@ import org.eclipse.ui.PlatformUI
 import org.eclipse.ui.plugin.AbstractUIPlugin
 import org.eclipse.ui.preferences.ScopedPreferenceStore
 import org.osgi.framework.BundleContext
+import org.eclipse.jface.resource.FontRegistry
 
 abstract class AbstractActivator extends AbstractCoreActivator implements IActivator {
 	private static val DIALOG_SETTINGS = "dialog_settings.xml"
@@ -50,6 +51,8 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 	ColorRegistry colorRegistry
 
 	ImageRegistry imageRegistry
+
+	FontRegistry fontRegistry
 
 	final override stop(BundleContext context) {
 
@@ -106,6 +109,13 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 		return null
 	}
 
+	final override getFontRegistry() {
+		if (fontRegistry == null) {
+			fontRegistry = new FontRegistry
+		}
+		return fontRegistry
+	}
+
 	final def addColor(String key, RGB rgb) {
 		if (getColorRegistry.hasValueFor(key)) {
 			warn(MessageFormat::format("A color with the key {0} has already been added to the registry.", key))
@@ -115,7 +125,7 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 		getColorRegistry.put(key, rgb)
 	}
 
-	private def getColorRegistry() {
+	override getColorRegistry() {
 		if (colorRegistry == null) {
 			colorRegistry = new ColorRegistry(display)
 		}

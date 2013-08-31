@@ -9,6 +9,7 @@ import org.eclipse.graphiti.mm.algorithms.styles.StylesPackage
 import org.eclipse.graphiti.mm.pictograms.Diagram
 import org.eclipse.jface.viewers.ArrayContentProvider
 import org.eclipse.jface.viewers.ITreeContentProvider
+import org.eclipse.graphiti.mm.algorithms.Polyline
 
 class GraphitiDebugOutlineContentProvider extends ArrayContentProvider implements ITreeContentProvider {
 	override getElements(Object element) {
@@ -19,6 +20,12 @@ class GraphitiDebugOutlineContentProvider extends ArrayContentProvider implement
 		switch (element) {
 			GraphitiDebugOutlineContainer: {
 				return element.children
+			}
+			Polyline: {
+				if (element.points.size == 2) {
+					return newArrayOfSize(0)
+				}
+				return element.eContents
 			}
 			Diagram: {
 				val Collection<Object> children = newLinkedHashSet
@@ -51,8 +58,6 @@ class GraphitiDebugOutlineContentProvider extends ArrayContentProvider implement
 			EObject: {
 				return element.eContents
 			}
-		}
-		if (element instanceof EObject) {
 		}
 		return newArrayOfSize(0)
 	}

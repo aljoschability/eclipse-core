@@ -6,12 +6,22 @@ import org.eclipse.graphiti.mm.pictograms.PictogramsPackage
 import org.eclipse.emf.ecore.EClass
 import org.eclipse.graphiti.mm.algorithms.AlgorithmsPackage
 import org.eclipse.graphiti.mm.algorithms.styles.StylesPackage
+import org.eclipse.graphiti.mm.MmPackage
 
 class Activator extends AbstractActivator {
 	static IActivator INSTANCE
 
 	override protected initialize() {
 		Activator::INSTANCE = this
+
+		// mm
+		for (type : MmPackage::eINSTANCE.EClassifiers) {
+			if (type instanceof EClass) {
+				if (!type.abstract && !type.interface) {
+					addImage(type.name, '''icons/graphiti/mm/«type.name».png''')
+				}
+			}
+		}
 
 		// pictograms
 		for (type : PictogramsPackage::eINSTANCE.EClassifiers) {
@@ -30,6 +40,7 @@ class Activator extends AbstractActivator {
 				}
 			}
 		}
+
 		// styles
 		for (type : StylesPackage::eINSTANCE.EClassifiers) {
 			if (type instanceof EClass) {

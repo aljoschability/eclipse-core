@@ -18,6 +18,8 @@ import org.eclipse.jface.resource.ImageDescriptor
 import org.eclipse.swt.graphics.Color
 import org.eclipse.swt.graphics.Image
 import org.eclipse.swt.widgets.Display
+import org.eclipse.jface.resource.FontRegistry
+import org.eclipse.jface.resource.ColorRegistry
 
 interface IActivator extends ICoreActivator {
 
@@ -66,4 +68,8 @@ interface IActivator extends ICoreActivator {
 	 * @return Returns the {@link Color} registered under the key.
 	 */
 	def Color getColor(String key)
+
+	def FontRegistry getFontRegistry()
+
+	def ColorRegistry getColorRegistry()
 }
