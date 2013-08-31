@@ -25,10 +25,10 @@ abstract class CorePattern extends AbstractPattern {
 	}
 
 	override protected isPatternRoot(PictogramElement pe) {
-		return getBusinessObject(pe).isElement
+		return isPatternControlled(pe)
 	}
 
-	def private getBusinessObject(PictogramElement pe) {
+	def protected getBusinessObject(PictogramElement pe) {
 		return Graphiti.linkService.getBusinessObjectForLinkedPictogramElement(pe)
 	}
 
