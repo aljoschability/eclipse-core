@@ -10,8 +10,8 @@
  */
 package com.aljoschability.eclipse.core.graphiti.outline
 
+import com.aljoschability.core.emf.providers.ComposedAdapterFactoryLabelProvider
 import com.aljoschability.eclipse.core.graphiti.providers.GraphitiOutlineContentProvider
-import com.aljoschability.eclipse.core.graphiti.providers.GraphitiOutlineLabelProvider
 import org.eclipse.jface.viewers.ISelection
 import org.eclipse.jface.viewers.TreeViewer
 import org.eclipse.swt.SWT
@@ -27,7 +27,7 @@ class GraphitiOutlineTreePart extends GraphitiOutlinePage {
 		viewer = new TreeViewer(tree)
 		viewer.addPostSelectionChangedListener(page)
 		viewer.contentProvider = new GraphitiOutlineContentProvider
-		viewer.labelProvider = new GraphitiOutlineLabelProvider
+		viewer.labelProvider = new ComposedAdapterFactoryLabelProvider
 
 		//viewer.comparator = new ViewerComparator
 		viewer.input = page.diagram
