@@ -2,60 +2,51 @@ package com.aljoschability.core.debug
 
 import com.aljoschability.core.ui.runtime.AbstractActivator
 import com.aljoschability.core.ui.runtime.IActivator
-import org.eclipse.graphiti.mm.pictograms.PictogramsPackage
+import java.util.Collection
 import org.eclipse.emf.ecore.EClass
+import org.eclipse.emf.ecore.EClassifier
+import org.eclipse.graphiti.mm.MmPackage
 import org.eclipse.graphiti.mm.algorithms.AlgorithmsPackage
 import org.eclipse.graphiti.mm.algorithms.styles.StylesPackage
-import org.eclipse.graphiti.mm.MmPackage
+import org.eclipse.graphiti.mm.pictograms.PictogramsPackage
 
 class Activator extends AbstractActivator {
 	static IActivator INSTANCE
 
+	def static IActivator get() {
+		return Activator::INSTANCE
+	}
+
 	override protected initialize() {
 		Activator::INSTANCE = this
 
-		// mm
-		for (type : MmPackage::eINSTANCE.EClassifiers) {
-			if (type instanceof EClass) {
-				if (!type.abstract && !type.interface) {
-					addImage(type.name, '''icons/graphiti/mm/«type.name».png''')
-				}
-			}
-		}
+		// activate debug stream
+		DebugOutputStream::activate
+
+		// add mm class icons
+		addGraphitiTypeIcons(MmPackage::eINSTANCE.EClassifiers, "mm")
 
 		// pictograms
-		for (type : PictogramsPackage::eINSTANCE.EClassifiers) {
-			if (type instanceof EClass) {
-				if (!type.abstract && !type.interface) {
-					addImage(type.name, '''icons/graphiti/pictograms/«type.name».png''')
-				}
-			}
-		}
+		addGraphitiTypeIcons(PictogramsPackage::eINSTANCE.EClassifiers, "pictograms")
 
 		// algorithms
-		for (type : AlgorithmsPackage::eINSTANCE.EClassifiers) {
-			if (type instanceof EClass) {
-				if (!type.abstract && !type.interface) {
-					addImage(type.name, '''icons/graphiti/algorithms/«type.name».png''')
-				}
-			}
-		}
+		addGraphitiTypeIcons(AlgorithmsPackage::eINSTANCE.EClassifiers, "algorithms")
 
 		// styles
-		for (type : StylesPackage::eINSTANCE.EClassifiers) {
-			if (type instanceof EClass) {
-				if (!type.abstract && !type.interface) {
-					addImage(type.name, '''icons/graphiti/styles/«type.name».png''')
-				}
-			}
-		}
+		addGraphitiTypeIcons(StylesPackage::eINSTANCE.EClassifiers, "styles")
 	}
 
 	override protected dispose() {
 		Activator::INSTANCE = null
 	}
 
-	def static IActivator get() {
-		return Activator::INSTANCE
+	def private void addGraphitiTypeIcons(Collection<EClassifier> collection, String prefix) {
+		for (type : collection) {
+			if (type instanceof EClass) {
+				if (!type.abstract && !type.interface) {
+					addImage(type.name, '''icons/graphiti/«prefix»/«type.name».png''')
+				}
+			}
+		}
 	}
 }
