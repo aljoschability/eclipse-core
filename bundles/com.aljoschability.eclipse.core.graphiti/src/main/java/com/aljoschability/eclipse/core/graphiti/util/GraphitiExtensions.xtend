@@ -2,6 +2,7 @@ package com.aljoschability.eclipse.core.graphiti.util
 
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.graphiti.features.context.IAreaContext
+import org.eclipse.graphiti.features.context.IPictogramElementContext
 import org.eclipse.graphiti.features.context.ITargetContext
 import org.eclipse.graphiti.mm.GraphicsAlgorithmContainer
 import org.eclipse.graphiti.mm.algorithms.GraphicsAlgorithm
@@ -11,25 +12,41 @@ import org.eclipse.graphiti.mm.algorithms.Rectangle
 import org.eclipse.graphiti.mm.algorithms.RoundedRectangle
 import org.eclipse.graphiti.mm.algorithms.Text
 import org.eclipse.graphiti.mm.pictograms.ContainerShape
+import org.eclipse.graphiti.mm.pictograms.Diagram
 import org.eclipse.graphiti.mm.pictograms.PictogramElement
 import org.eclipse.graphiti.mm.pictograms.Shape
 import org.eclipse.graphiti.services.Graphiti
+import org.eclipse.graphiti.services.IGaService
 import org.eclipse.graphiti.services.ILinkService
 import org.eclipse.graphiti.services.IPeService
+import org.eclipse.graphiti.util.IColorConstant
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1
 
 class GraphitiExtensions {
 	val public static INSTANCE = new GraphitiExtensions
 
 	extension IPeService = Graphiti::peService
+	extension IGaService = Graphiti::gaService
 	extension ILinkService = Graphiti::linkService
 
-	private new() {
+	protected new() {
 	}
 
 	@Deprecated
 	def EObject getElement(PictogramElement pe) {
 		return pe.bo
+	}
+
+	def void setBackground(GraphicsAlgorithm ga, IColorConstant color) {
+		ga.background = ga.diagram.manageColor(color)
+	}
+
+	def void setForeground(GraphicsAlgorithm ga, IColorConstant color) {
+		ga.foreground = ga.diagram.manageColor(color)
+	}
+
+	def Diagram getDiagram(GraphicsAlgorithm ga) {
+		ga.activeContainerPe.diagramForPictogramElement
 	}
 
 	def int[] position(IAreaContext context) {
@@ -55,7 +72,11 @@ class GraphitiExtensions {
 	}
 
 	def EObject getBo(PictogramElement pe) {
-		return pe.businessObjectForLinkedPictogramElement
+		pe.businessObjectForLinkedPictogramElement
+	}
+
+	def EObject getBo(IPictogramElementContext context) {
+		context.pictogramElement.bo
 	}
 
 	def ContainerShape addContainerShape(Procedure1<ContainerShape> initializer) {
