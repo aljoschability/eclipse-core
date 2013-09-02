@@ -10,26 +10,26 @@
  */
 package com.aljoschability.eclipse.core.graphiti.outline
 
-import org.eclipse.ui.part.Page
-import org.eclipse.ui.views.contentoutline.IContentOutlinePage
-import org.eclipse.swt.widgets.Composite
-import org.eclipse.jface.viewers.ISelectionChangedListener
-import org.eclipse.jface.viewers.ISelection
-import org.eclipse.ui.part.PageBook
-import org.eclipse.swt.SWT
-import java.util.Collection
-import org.eclipse.jface.viewers.SelectionChangedEvent
-import org.eclipse.jface.util.SafeRunnable
-import org.eclipse.core.runtime.SafeRunner
-import org.eclipse.jface.action.IAction
-import org.eclipse.jface.action.Action
 import com.aljoschability.eclipse.core.graphiti.GraphitiImages
+import java.util.Collection
 import org.eclipse.core.runtime.IAdaptable
-import org.eclipse.graphiti.mm.pictograms.Diagram
-import org.eclipse.ui.part.IPageSite
-import org.eclipse.gef.GraphicalViewer
-import org.eclipse.ui.forms.widgets.FormToolkit
+import org.eclipse.core.runtime.SafeRunner
 import org.eclipse.emf.ecore.resource.ResourceSet
+import org.eclipse.gef.GraphicalViewer
+import org.eclipse.graphiti.mm.pictograms.Diagram
+import org.eclipse.jface.action.Action
+import org.eclipse.jface.action.IAction
+import org.eclipse.jface.util.SafeRunnable
+import org.eclipse.jface.viewers.ISelection
+import org.eclipse.jface.viewers.ISelectionChangedListener
+import org.eclipse.jface.viewers.SelectionChangedEvent
+import org.eclipse.swt.SWT
+import org.eclipse.swt.widgets.Composite
+import org.eclipse.ui.forms.widgets.FormToolkit
+import org.eclipse.ui.part.IPageSite
+import org.eclipse.ui.part.Page
+import org.eclipse.ui.part.PageBook
+import org.eclipse.ui.views.contentoutline.IContentOutlinePage
 
 class GraphitiContentOutlinePage extends Page implements IContentOutlinePage, ISelectionChangedListener {
 	val Collection<ISelectionChangedListener> listeners

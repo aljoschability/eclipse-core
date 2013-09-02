@@ -101,7 +101,7 @@ class XGraphitiOutlinePage extends Page implements IContentOutlinePage, ISelecti
 		// register global action
 		ACTION_IDS.forEach [
 			val IAction action = actionRegistry.getAction(it)
-			if(action != null) {
+			if (action != null) {
 				site.actionBars.setGlobalActionHandler(it, action)
 			}
 		]
