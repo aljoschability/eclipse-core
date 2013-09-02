@@ -19,11 +19,17 @@ abstract class CoreCreateFeature extends AbstractFeature implements ICreateFeatu
 	}
 
 	override canExecute(IContext context) {
-		canCreate(context as ICreateContext)
+		if (context instanceof ICreateContext) {
+			canCreate(context)
+		} else {
+			false
+		}
 	}
 
 	override execute(IContext context) {
-		create(context as ICreateContext)
+		if (context instanceof ICreateContext) {
+			create(context)
+		}
 	}
 
 	override create(ICreateContext context) {
@@ -37,10 +43,6 @@ abstract class CoreCreateFeature extends AbstractFeature implements ICreateFeatu
 	}
 
 	def EObject createElement(ICreateContext context)
-
-	def protected boolean isEditable() {
-		editable
-	}
 
 	def protected void setEditable(boolean editable) {
 		this.editable = editable
@@ -76,5 +78,13 @@ abstract class CoreCreateFeature extends AbstractFeature implements ICreateFeatu
 
 	def protected void setLargeImageId(String largeImageId) {
 		this.largeImageId = largeImageId
+	}
+
+	override getName() {
+		name
+	}
+
+	override getDescription() {
+		description
 	}
 }
