@@ -23,6 +23,7 @@ class CoreToolBehaviorProvider extends DefaultToolBehaviorProvider {
 		val largeIconId = feature.createLargeImageId
 
 		val entry = new ConnectionCreationToolEntry(label, description, iconId, largeIconId)
+
 		entry.addCreateConnectionFeature(feature)
 
 		return entry
