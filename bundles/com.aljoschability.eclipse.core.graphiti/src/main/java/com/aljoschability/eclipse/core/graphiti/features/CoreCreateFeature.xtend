@@ -42,7 +42,7 @@ abstract class CoreCreateFeature extends AbstractFeature implements ICreateFeatu
 		return #[element]
 	}
 
-	def EObject createElement(ICreateContext context)
+	def protected EObject createElement(ICreateContext context)
 
 	def protected void setEditable(boolean editable) {
 		this.editable = editable

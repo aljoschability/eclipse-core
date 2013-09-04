@@ -21,6 +21,9 @@ import org.eclipse.graphiti.services.ILinkService
 import org.eclipse.graphiti.services.IPeService
 import org.eclipse.graphiti.util.IColorConstant
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1
+import org.eclipse.graphiti.mm.pictograms.Anchor
+import org.eclipse.graphiti.features.context.IAddContext
+import org.eclipse.graphiti.features.context.IAddConnectionContext
 
 class GraphitiExtensions {
 	val public static INSTANCE = new GraphitiExtensions
@@ -30,6 +33,18 @@ class GraphitiExtensions {
 	extension ILinkService = Graphiti::linkService
 
 	protected new() {
+	}
+
+	def Anchor getSourceAnchor(IAddContext context) {
+		if (context instanceof IAddConnectionContext) {
+			return context.sourceAnchor
+		}
+	}
+
+	def Anchor getTargetAnchor(IAddContext context) {
+		if (context instanceof IAddConnectionContext) {
+			return context.targetAnchor
+		}
 	}
 
 	@Deprecated
