@@ -1,16 +1,14 @@
 package com.aljoschability.eclipse.core.graphiti.util
 
 import org.eclipse.emf.ecore.EObject
+import org.eclipse.graphiti.features.context.IAddConnectionContext
+import org.eclipse.graphiti.features.context.IAddContext
 import org.eclipse.graphiti.features.context.IAreaContext
 import org.eclipse.graphiti.features.context.IPictogramElementContext
 import org.eclipse.graphiti.features.context.ITargetContext
-import org.eclipse.graphiti.mm.GraphicsAlgorithmContainer
 import org.eclipse.graphiti.mm.algorithms.GraphicsAlgorithm
-import org.eclipse.graphiti.mm.algorithms.Image
-import org.eclipse.graphiti.mm.algorithms.Polyline
-import org.eclipse.graphiti.mm.algorithms.Rectangle
 import org.eclipse.graphiti.mm.algorithms.RoundedRectangle
-import org.eclipse.graphiti.mm.algorithms.Text
+import org.eclipse.graphiti.mm.pictograms.Anchor
 import org.eclipse.graphiti.mm.pictograms.ContainerShape
 import org.eclipse.graphiti.mm.pictograms.Diagram
 import org.eclipse.graphiti.mm.pictograms.PictogramElement
@@ -20,10 +18,6 @@ import org.eclipse.graphiti.services.IGaService
 import org.eclipse.graphiti.services.ILinkService
 import org.eclipse.graphiti.services.IPeService
 import org.eclipse.graphiti.util.IColorConstant
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1
-import org.eclipse.graphiti.mm.pictograms.Anchor
-import org.eclipse.graphiti.features.context.IAddContext
-import org.eclipse.graphiti.features.context.IAddConnectionContext
 
 class GraphitiExtensions {
 	val public static INSTANCE = new GraphitiExtensions
@@ -45,11 +39,6 @@ class GraphitiExtensions {
 		if (context instanceof IAddConnectionContext) {
 			return context.targetAnchor
 		}
-	}
-
-	@Deprecated
-	def EObject getElement(PictogramElement pe) {
-		return pe.bo
 	}
 
 	def void setBackground(GraphicsAlgorithm ga, IColorConstant color) {
@@ -92,63 +81,6 @@ class GraphitiExtensions {
 
 	def EObject getBo(IPictogramElementContext context) {
 		context.pictogramElement.bo
-	}
-
-	def ContainerShape addContainerShape(Procedure1<ContainerShape> initializer) {
-		return addContainerShape(null, initializer)
-	}
-
-	def ContainerShape addContainerShape(ContainerShape parent, Procedure1<ContainerShape> initializer) {
-		val element = Graphiti::peService.createContainerShape(parent, false)
-		if (initializer != null) {
-			initializer.apply(element)
-		}
-		return element
-	}
-
-	def Text addText(GraphicsAlgorithmContainer parent, Procedure1<Text> initializer) {
-		val element = Graphiti::gaService.createText(parent)
-		if (initializer != null) {
-			initializer.apply(element)
-		}
-		return element
-	}
-
-	def Polyline addPolyline(GraphicsAlgorithmContainer parent, Procedure1<Polyline> initializer) {
-		val element = Graphiti::gaService.createPlainPolyline(parent)
-		if (initializer != null) {
-			initializer.apply(element)
-		}
-		return element
-	}
-
-	def Image addImage(GraphicsAlgorithmContainer parent, Procedure1<Image> initializer) {
-		val element = Graphiti::gaService.createImage(parent, null)
-		if (initializer != null) {
-			initializer.apply(element)
-		}
-		return element
-	}
-
-	def void addPoint(Polyline ga, int x, int y) {
-		ga.points += Graphiti.gaService.createPoint(x, y)
-	}
-
-	def RoundedRectangle addRoundedRectangle(GraphicsAlgorithmContainer parent,
-		Procedure1<RoundedRectangle> initializer) {
-		val element = Graphiti::gaService.createPlainRoundedRectangle(parent, 0, 0)
-		if (initializer != null) {
-			initializer.apply(element)
-		}
-		return element
-	}
-
-	def Rectangle addRectangle(GraphicsAlgorithmContainer parent, Procedure1<Rectangle> initializer) {
-		val element = Graphiti::gaService.createPlainRectangle(parent)
-		if (initializer != null) {
-			initializer.apply(element)
-		}
-		return element
 	}
 
 	def void setParent(Shape shape, ContainerShape container) {

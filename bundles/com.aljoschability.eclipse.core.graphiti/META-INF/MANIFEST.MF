@@ -25,6 +25,7 @@ Export-Package: com.aljoschability.eclipse.core.graphiti,
  com.aljoschability.eclipse.core.graphiti.outline,
  com.aljoschability.eclipse.core.graphiti.pattern,
  com.aljoschability.eclipse.core.graphiti.patterns,
+ com.aljoschability.eclipse.core.graphiti.services,
  com.aljoschability.eclipse.core.graphiti.util,
  com.aljoschability.eclipse.core.graphiti.wizards
 Bundle-ActivationPolicy: lazy
