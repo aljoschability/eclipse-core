@@ -19,9 +19,17 @@ import org.eclipse.graphiti.services.IGaService
 import org.eclipse.graphiti.services.IPeService
 import org.eclipse.graphiti.util.IGradientType
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1
+import org.eclipse.graphiti.mm.pictograms.Diagram
+import org.eclipse.graphiti.mm.pictograms.FreeFormConnection
 
-interface CreateService {
-	CreateService INSTANCE = new CreateServiceImpl
+interface AddService {
+	AddService INSTANCE = new CreateServiceImpl
+
+	def ContainerShape addContainerShape(ContainerShape container, Procedure1<ContainerShape> procedure)
+
+	def ChopboxAnchor addChopboxAnchor(AnchorContainer container)
+
+	def FreeFormConnection addFreeFormConnection(Diagram container, Procedure1<FreeFormConnection> procedure)
 
 	/**
 	 * Creates a new plain and empty text inside the given container.
@@ -54,27 +62,28 @@ interface CreateService {
 
 	def Point newPoint(Polyline container, int x, int y)
 
-	def ContainerShape newContainerShape(ContainerShape container, Procedure1<ContainerShape> procedure)
-
-	def ChopboxAnchor newChopboxAnchor(AnchorContainer container)
-
 	def Style newStyle(StyleContainer container, Procedure1<Style> procedure)
 
 	def AdaptedGradientColoredAreas newGradient(Procedure1<AdaptedGradientColoredAreas> procedure)
 }
 
-final class CreateServiceImpl implements CreateService {
+final class CreateServiceImpl implements AddService {
 	extension IPeService = Graphiti::peService
 	extension IGaService = Graphiti::gaService
 
-	override newText(GraphicsAlgorithmContainer c, Procedure1<Text> p) {
-		val element = c.createPlainText
-		element.filled = false
+	override addFreeFormConnection(Diagram c, Procedure1<FreeFormConnection> p) {
+		val element = c.createFreeFormConnection
 		p?.apply(element)
 		return element
 	}
 
-	override newContainerShape(ContainerShape c, Procedure1<ContainerShape> p) {
+	override newText(GraphicsAlgorithmContainer c, Procedure1<Text> p) {
+		val element = c.createPlainText
+		p?.apply(element)
+		return element
+	}
+
+	override addContainerShape(ContainerShape c, Procedure1<ContainerShape> p) {
 		val element = c.createContainerShape(true)
 		p?.apply(element)
 		return element
@@ -110,7 +119,7 @@ final class CreateServiceImpl implements CreateService {
 		return element
 	}
 
-	override newChopboxAnchor(AnchorContainer c) {
+	override addChopboxAnchor(AnchorContainer c) {
 		c.createChopboxAnchor
 	}
 

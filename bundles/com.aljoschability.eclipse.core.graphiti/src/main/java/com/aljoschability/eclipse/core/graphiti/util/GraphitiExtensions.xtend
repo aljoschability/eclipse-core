@@ -18,15 +18,27 @@ import org.eclipse.graphiti.services.IGaService
 import org.eclipse.graphiti.services.ILinkService
 import org.eclipse.graphiti.services.IPeService
 import org.eclipse.graphiti.util.IColorConstant
+import com.aljoschability.eclipse.core.graphiti.services.ContextService
 
 class GraphitiExtensions {
 	val public static INSTANCE = new GraphitiExtensions
 
 	extension IPeService = Graphiti::peService
 	extension IGaService = Graphiti::gaService
-	extension ILinkService = Graphiti::linkService
+
+	extension ContextService = ContextService::INSTANCE
 
 	protected new() {
+	}
+
+	@Deprecated
+	def EObject getBo(PictogramElement pe) {
+		pe.model
+	}
+
+	@Deprecated
+	def EObject getBo(IPictogramElementContext context) {
+		context.model
 	}
 
 	def Anchor getSourceAnchor(IAddContext context) {
@@ -73,14 +85,6 @@ class GraphitiExtensions {
 
 	def ContainerShape getContainer(ITargetContext context) {
 		return context.targetContainer
-	}
-
-	def EObject getBo(PictogramElement pe) {
-		pe.businessObjectForLinkedPictogramElement
-	}
-
-	def EObject getBo(IPictogramElementContext context) {
-		context.pictogramElement.bo
 	}
 
 	def void setParent(Shape shape, ContainerShape container) {
