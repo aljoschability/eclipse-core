@@ -23,51 +23,94 @@ import org.eclipse.graphiti.mm.pictograms.Diagram
 import org.eclipse.graphiti.mm.pictograms.FreeFormConnection
 
 interface AddService {
-	AddService INSTANCE = new CreateServiceImpl
+	AddService INSTANCE = new AddServiceImpl
 
+	/**
+	 * Creates an initially <strong>active</strong> container shape on the given container.
+	 * 
+	 * @param container The container for the element.
+	 * @param procedure The statements that should be applied to the newly created element.
+ 	 */
 	def ContainerShape addContainerShape(ContainerShape container, Procedure1<ContainerShape> procedure)
 
-	def ChopboxAnchor addChopboxAnchor(AnchorContainer container)
-
+	/**
+	 * Creates a free-form connection on the given diagram.
+	 * 
+	 * @param container The container for the element.
+	 * @param procedure The statements that should be applied to the newly created element.
+ 	 */
 	def FreeFormConnection addFreeFormConnection(Diagram container, Procedure1<FreeFormConnection> procedure)
 
 	/**
-	 * Creates a new plain and empty text inside the given container.
+	 * Creates a chopbox anchor on the given container.
 	 * 
-	 * @param container The container for the text.
-	 * @param procedure The statements that should be applied to the newly create element.
+	 * @param container The container for the element.
  	 */
-	def Text newText(GraphicsAlgorithmContainer container, Procedure1<Text> procedure)
-
-	/**
-	 * Creates a new plain rounded rectangle with default corner width and height of <code>6</code> inside the given container.
-	 * 
-	 * @param container The container for the text.
-	 * @param procedure The statements that should be applied to the newly create element.
- 	 */
-	def RoundedRectangle newRoundedRectangle(GraphicsAlgorithmContainer container,
-		Procedure1<RoundedRectangle> procedure)
+	def ChopboxAnchor addChopboxAnchor(AnchorContainer container)
 
 	/**
 	 * Creates a new plain rectangle inside the given container.
 	 * 
-	 * @param container The container for the text.
-	 * @param procedure The statements that should be applied to the newly create element.
+	 * @param container The container for the element.
+	 * @param procedure The statements that should be applied to the newly created element.
  	 */
-	def Rectangle newRectangle(GraphicsAlgorithmContainer container, Procedure1<Rectangle> procedure)
+	def Rectangle addRectangle(GraphicsAlgorithmContainer container, Procedure1<Rectangle> procedure)
 
-	def Image newImage(GraphicsAlgorithmContainer container, Procedure1<Image> procedure)
+	/**
+	 * Creates a new plain rounded rectangle with default corner width and height of <code>6</code> inside the given container.
+	 * 
+	 * @param container The container for the element.
+	 * @param procedure The statements that should be applied to the newly created element.
+ 	 */
+	def RoundedRectangle addRoundedRectangle(GraphicsAlgorithmContainer container,
+		Procedure1<RoundedRectangle> procedure)
 
-	def Polyline newPolyline(GraphicsAlgorithmContainer container, Procedure1<Polyline> procedure)
+	/**
+	 * Creates a new plain and empty text inside the given container.
+	 * 
+	 * @param container The container for the element.
+	 * @param procedure The statements that should be applied to the newly created element.
+ 	 */
+	def Text addText(GraphicsAlgorithmContainer container, Procedure1<Text> procedure)
 
-	def Point newPoint(Polyline container, int x, int y)
+	/**
+	 * Creates a new image inside the given container.
+	 * 
+	 * @param container The container for the element.
+	 * @param id The id of the image.
+	 * @param procedure The statements that should be applied to the newly created element.
+ 	 */
+	def Image addImage(GraphicsAlgorithmContainer container, String id, Procedure1<Image> procedure)
 
-	def Style newStyle(StyleContainer container, Procedure1<Style> procedure)
+	/**
+	 * Creates a new plain polyline inside the given container.
+	 * 
+	 * @param container The container for the element.
+	 * @param procedure The statements that should be applied to the newly created element.
+ 	 */
+	def Polyline addPolyline(GraphicsAlgorithmContainer container, Procedure1<Polyline> procedure)
+
+	/**
+	 * Creates a new point inside the given container.
+	 * 
+	 * @param container The container for the element.
+	 * @param x The horizontal coordinate for the point.
+	 * @param y The vertical coordinate for the point.
+ 	 */
+	def Point addPoint(Polyline container, int x, int y)
+
+	/**
+	 * Creates a new style inside the given container.
+	 * 
+	 * @param container The container for the element.
+	 * @param procedure The statements that should be applied to the newly created element.
+ 	 */
+	def Style addStyle(StyleContainer container, Procedure1<Style> procedure)
 
 	def AdaptedGradientColoredAreas newGradient(Procedure1<AdaptedGradientColoredAreas> procedure)
 }
 
-final class CreateServiceImpl implements AddService {
+package final class AddServiceImpl implements AddService {
 	extension IPeService = Graphiti::peService
 	extension IGaService = Graphiti::gaService
 
@@ -77,7 +120,7 @@ final class CreateServiceImpl implements AddService {
 		return element
 	}
 
-	override newText(GraphicsAlgorithmContainer c, Procedure1<Text> p) {
+	override addText(GraphicsAlgorithmContainer c, Procedure1<Text> p) {
 		val element = c.createPlainText
 		p?.apply(element)
 		return element
@@ -89,31 +132,31 @@ final class CreateServiceImpl implements AddService {
 		return element
 	}
 
-	override newRoundedRectangle(GraphicsAlgorithmContainer c, Procedure1<RoundedRectangle> p) {
+	override addRoundedRectangle(GraphicsAlgorithmContainer c, Procedure1<RoundedRectangle> p) {
 		val element = c.createPlainRoundedRectangle(6, 6)
 		p?.apply(element)
 		return element
 	}
 
-	override newRectangle(GraphicsAlgorithmContainer c, Procedure1<Rectangle> p) {
+	override addRectangle(GraphicsAlgorithmContainer c, Procedure1<Rectangle> p) {
 		val element = c.createPlainRectangle
 		p?.apply(element)
 		return element
 	}
 
-	override newImage(GraphicsAlgorithmContainer c, Procedure1<Image> p) {
-		val element = c.createImage(null)
+	override addImage(GraphicsAlgorithmContainer c, String id, Procedure1<Image> p) {
+		val element = c.createImage(id)
 		p?.apply(element)
 		return element
 	}
 
-	override newPolyline(GraphicsAlgorithmContainer container, Procedure1<Polyline> p) {
+	override addPolyline(GraphicsAlgorithmContainer container, Procedure1<Polyline> p) {
 		val element = container.createPlainPolyline
 		p?.apply(element)
 		return element
 	}
 
-	override newPoint(Polyline container, int x, int y) {
+	override addPoint(Polyline container, int x, int y) {
 		val element = createPoint(x, y)
 		container.points += element
 		return element
@@ -123,7 +166,7 @@ final class CreateServiceImpl implements AddService {
 		c.createChopboxAnchor
 	}
 
-	override newStyle(StyleContainer c, Procedure1<Style> p) {
+	override addStyle(StyleContainer c, Procedure1<Style> p) {
 		val element = c.createStyle(null as String)
 		p?.apply(element)
 		return element
