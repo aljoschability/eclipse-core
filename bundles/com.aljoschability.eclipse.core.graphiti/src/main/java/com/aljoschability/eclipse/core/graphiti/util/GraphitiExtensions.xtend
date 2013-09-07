@@ -1,5 +1,6 @@
 package com.aljoschability.eclipse.core.graphiti.util
 
+import com.aljoschability.eclipse.core.graphiti.services.ContextService
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.graphiti.features.context.IAddConnectionContext
 import org.eclipse.graphiti.features.context.IAddContext
@@ -7,6 +8,7 @@ import org.eclipse.graphiti.features.context.IAreaContext
 import org.eclipse.graphiti.features.context.IPictogramElementContext
 import org.eclipse.graphiti.features.context.ITargetContext
 import org.eclipse.graphiti.mm.algorithms.GraphicsAlgorithm
+import org.eclipse.graphiti.mm.algorithms.Image
 import org.eclipse.graphiti.mm.algorithms.RoundedRectangle
 import org.eclipse.graphiti.mm.pictograms.Anchor
 import org.eclipse.graphiti.mm.pictograms.ContainerShape
@@ -15,10 +17,8 @@ import org.eclipse.graphiti.mm.pictograms.PictogramElement
 import org.eclipse.graphiti.mm.pictograms.Shape
 import org.eclipse.graphiti.services.Graphiti
 import org.eclipse.graphiti.services.IGaService
-import org.eclipse.graphiti.services.ILinkService
 import org.eclipse.graphiti.services.IPeService
 import org.eclipse.graphiti.util.IColorConstant
-import com.aljoschability.eclipse.core.graphiti.services.ContextService
 
 class GraphitiExtensions {
 	val public static INSTANCE = new GraphitiExtensions
@@ -39,6 +39,14 @@ class GraphitiExtensions {
 	@Deprecated
 	def EObject getBo(IPictogramElementContext context) {
 		context.model
+	}
+
+	def String getValue(Image element) {
+		element?.id
+	}
+
+	def void setValue(Image element, String value) {
+		element.id = value
 	}
 
 	def Anchor getSourceAnchor(IAddContext context) {
