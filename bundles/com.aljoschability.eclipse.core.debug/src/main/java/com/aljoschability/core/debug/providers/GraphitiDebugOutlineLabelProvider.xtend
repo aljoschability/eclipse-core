@@ -19,6 +19,7 @@ import org.eclipse.swt.SWT
 import org.eclipse.swt.graphics.FontData
 import org.eclipse.swt.graphics.RGB
 import org.eclipse.swt.widgets.Display
+import org.eclipse.graphiti.mm.algorithms.styles.Style
 
 class GraphitiDebugOutlineLabelProvider extends LabelProvider implements /*DelegatingStyledCellLabelProvider.IStyledLabelProvider, */ IColorProvider, IFontProvider {
 	override getText(Object element) {
@@ -62,6 +63,7 @@ class GraphitiDebugOutlineLabelProvider extends LabelProvider implements /*Deleg
 			Image: {
 				'''Image [«element.id»]'''
 			}
+			Style: '''Style "«element.id»"'''
 			EObject: {
 				'''«element.eClass.name»'''
 			}

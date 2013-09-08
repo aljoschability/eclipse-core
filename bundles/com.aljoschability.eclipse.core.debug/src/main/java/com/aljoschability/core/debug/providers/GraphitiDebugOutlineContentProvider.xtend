@@ -1,15 +1,15 @@
 package com.aljoschability.core.debug.providers
 
+import com.aljoschability.core.debug.DebugImages
 import com.aljoschability.core.debug.parts.GraphitiDebugOutlineContainer
 import java.util.Collection
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.util.EcoreUtil
+import org.eclipse.graphiti.mm.algorithms.Polyline
 import org.eclipse.graphiti.mm.algorithms.styles.Color
-import org.eclipse.graphiti.mm.algorithms.styles.StylesPackage
 import org.eclipse.graphiti.mm.pictograms.Diagram
 import org.eclipse.jface.viewers.ArrayContentProvider
 import org.eclipse.jface.viewers.ITreeContentProvider
-import org.eclipse.graphiti.mm.algorithms.Polyline
 
 class GraphitiDebugOutlineContentProvider extends ArrayContentProvider implements ITreeContentProvider {
 	override getElements(Object element) {
@@ -28,18 +28,14 @@ class GraphitiDebugOutlineContentProvider extends ArrayContentProvider implement
 				return element.eContents
 			}
 			Diagram: {
-				val Collection<Object> children = newLinkedHashSet
+				val Collection<Object> children = newArrayList
 
-				children += element.children
+				children += newContainer("Shapes", DebugImages::SHAPES, element.children)
+				children += newContainer("Connections", DebugImages::CONNECTIONS, element.connections)
+				children += newContainer("Colors", DebugImages::COLORS, element.colors)
+				children += newContainer("Fonts", DebugImages::FONTS, element.fonts)
+				children += newContainer("Styles", DebugImages::STYLES, element.styles)
 
-				children +=
-					new GraphitiDebugOutlineContainer("Colors", StylesPackage.Literals::COLOR.name, element.colors)
-				children +=
-					new GraphitiDebugOutlineContainer("Fonts", StylesPackage.Literals::FONT.name, element.fonts)
-
-				//children += new GraphitiDebugOutlineContainer("Connections", "", element.connections)
-				//children += new GraphitiDebugOutlineContainer("Links", "", element.pictogramLinks)
-				//children += new GraphitiDebugOutlineContainer("Styles", "", element.styles)
 				return children
 			}
 			Color: {
@@ -60,6 +56,10 @@ class GraphitiDebugOutlineContentProvider extends ArrayContentProvider implement
 			}
 		}
 		return newArrayOfSize(0)
+	}
+
+	def newContainer(String name, String imageId, Collection<?> collection) {
+		new GraphitiDebugOutlineContainer(name, imageId, collection)
 	}
 
 	override getParent(Object element) {
