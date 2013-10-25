@@ -11,15 +11,15 @@
 -->
 <site>
    <feature url="features/com.aljoschability.eclipse.core.graphiti.feature_0.2.0.qualifier.jar" id="com.aljoschability.eclipse.core.graphiti.feature" version="0.2.0.qualifier">
-      <category name="com.aljoschability.eclipse.core"/>
+		<category name="com.aljoschability.eclipse"/>
    </feature>
    <feature url="features/com.aljoschability.eclipse.core.properties.feature_0.2.0.qualifier.jar" id="com.aljoschability.eclipse.core.properties.feature" version="0.2.0.qualifier">
-      <category name="com.aljoschability.eclipse.core"/>
+		<category name="com.aljoschability.eclipse"/>
    </feature>
    <feature url="features/com.aljoschability.eclipse.core.runtime.feature_0.2.0.qualifier.jar" id="com.aljoschability.eclipse.core.runtime.feature" version="0.2.0.qualifier">
-      <category name="com.aljoschability.eclipse.core"/>
-   </feature>
-   <category-def name="com.aljoschability.eclipse.core" label="Eclipse Core">
-    <description>This contains all Eclipse core features.</description>
-   </category-def>
+		<category name="com.aljoschability.eclipse"/>
+	</feature>
+	<category-def name="com.aljoschability.eclipse" label="Aljoschability">
+		<description>This contains all Eclipse features from Aljoschability.</description>
+	</category-def>
 </site>
