@@ -64,29 +64,29 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 		imageRegistry = null
 
 		// dialog settings
-		if (dialogSettings != null) {
+		if(dialogSettings != null) {
 			try {
 				var IPath path = Platform::getStateLocation(bundle)
-				if (path == null) {
+				if(path == null) {
 					throw new NullPointerException("The system is running with no data area.")
 				}
 
 				dialogSettings.save(path.append(DIALOG_SETTINGS).toOSString())
-			} catch (IOException e) {
+			} catch(IOException e) {
 				error("Could not save dialog settings!", e)
-			} catch (IllegalStateException e) {
+			} catch(IllegalStateException e) {
 				error("Could not save dialog settings!", e)
-			} catch (NullPointerException e) {
+			} catch(NullPointerException e) {
 				error("Could not save dialog settings!", e)
 			}
 		}
 		dialogSettings = null
 
 		// preference store
-		if (preferenceStore != null) {
+		if(preferenceStore != null) {
 			try {
 				preferenceStore.save()
-			} catch (IOException e) {
+			} catch(IOException e) {
 				error("Could not save preference store!", e)
 			}
 		}
@@ -96,28 +96,28 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 	}
 
 	final override getPreferenceStore() {
-		if (preferenceStore == null) {
+		if(preferenceStore == null) {
 			preferenceStore = new ScopedPreferenceStore(InstanceScope.INSTANCE, symbolicName)
 		}
 		return preferenceStore;
 	}
 
 	final override getColor(String key) {
-		if (getColorRegistry.hasValueFor(key)) {
+		if(getColorRegistry.hasValueFor(key)) {
 			return getColorRegistry.get(key)
 		}
 		return null
 	}
 
 	final override getFontRegistry() {
-		if (fontRegistry == null) {
+		if(fontRegistry == null) {
 			fontRegistry = new FontRegistry
 		}
 		return fontRegistry
 	}
 
 	final def addColor(String key, RGB rgb) {
-		if (getColorRegistry.hasValueFor(key)) {
+		if(getColorRegistry.hasValueFor(key)) {
 			warn(MessageFormat::format("A color with the key {0} has already been added to the registry.", key))
 			return
 		}
@@ -126,7 +126,7 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 	}
 
 	override getColorRegistry() {
-		if (colorRegistry == null) {
+		if(colorRegistry == null) {
 			colorRegistry = new ColorRegistry(display)
 		}
 		return colorRegistry
@@ -134,7 +134,7 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 
 	final override getImage(String path) {
 		var Image image = getImageRegistry.get(path)
-		if (image != null) {
+		if(image != null) {
 			return image
 		}
 		getImageRegistry.get(null)
@@ -142,7 +142,7 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 
 	final override getImageDescriptor(String path) {
 		var ImageDescriptor descriptor = getImageRegistry().getDescriptor(path);
-		if (descriptor != null) {
+		if(descriptor != null) {
 			return descriptor;
 		}
 		getImageRegistry.getDescriptor(null);
@@ -154,13 +154,13 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 
 	protected final def void addImage(String key, String path) {
 		var ImageDescriptor descriptor = getImageRegistry.getDescriptor(key)
-		if (descriptor != null) {
+		if(descriptor != null) {
 			warn(MessageFormat::format("An image with the key {0} has already been added to the registry.", key))
 			return;
 		}
 
 		descriptor = AbstractUIPlugin::imageDescriptorFromPlugin(symbolicName, path)
-		if (descriptor == null) {
+		if(descriptor == null) {
 			warn(MessageFormat::format("The image under the path {0} could not be found.", path))
 			return
 		}
@@ -168,8 +168,8 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 		getImageRegistry.put(key, descriptor)
 	}
 
-	private def ImageRegistry getImageRegistry() {
-		if (imageRegistry == null) {
+	protected def ImageRegistry getImageRegistry() {
+		if(imageRegistry == null) {
 			imageRegistry = new ImageRegistry(display)
 			imageRegistry.put(null, ImageDescriptor::getMissingImageDescriptor())
 		}
@@ -179,12 +179,12 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 	final override getDisplay() {
 
 		// use UI thread
-		if (Display::getCurrent() != null) {
+		if(Display::getCurrent() != null) {
 			return Display::getCurrent()
 		}
 
 		// use platform display
-		if (PlatformUI::isWorkbenchRunning()) {
+		if(PlatformUI::isWorkbenchRunning()) {
 			return PlatformUI::getWorkbench().getDisplay()
 		}
 
@@ -193,7 +193,7 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 	}
 
 	final override getDialogSettings() {
-		if (dialogSettings == null) {
+		if(dialogSettings == null) {
 			dialogSettings = createDialogSettings()
 		}
 		return dialogSettings
@@ -204,15 +204,15 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 
 		// see bug 69387
 		var IPath path = Platform::getStateLocation(bundle)
-		if (path != null) {
+		if(path != null) {
 
 			// try r/w state area in the local file system
 			var String readWritePath = path.append(DIALOG_SETTINGS).toOSString()
 			var File settingsFile = new File(readWritePath)
-			if (settingsFile.exists()) {
+			if(settingsFile.exists()) {
 				try {
 					dialogSettings.load(readWritePath)
-				} catch (IOException e) {
+				} catch(IOException e) {
 
 					// load failed so ensure we have an empty settings
 					dialogSettings = new DialogSettings(WORKBENCH)
@@ -224,7 +224,7 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 
 		// otherwise look for bundle specific dialog settings
 		var URL dsURL = FileLocator::find(bundle, new Path(DIALOG_SETTINGS), null)
-		if (dsURL == null) {
+		if(dsURL == null) {
 			return dialogSettings
 		}
 
@@ -233,16 +233,16 @@ abstract class AbstractActivator extends AbstractCoreActivator implements IActiv
 			is = dsURL.openStream()
 			var BufferedReader reader = new BufferedReader(new InputStreamReader(is, ENCODING))
 			dialogSettings.load(reader)
-		} catch (IOException e) {
+		} catch(IOException e) {
 
 			// load failed so ensure we have an empty settings
 			dialogSettings = new DialogSettings(WORKBENCH)
 		} finally {
 			try {
-				if (is != null) {
+				if(is != null) {
 					is.close()
 				}
-			} catch (IOException e) {
+			} catch(IOException e) {
 				// do nothing
 			}
 		}
